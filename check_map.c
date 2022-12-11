@@ -6,31 +6,91 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 12:19:35 by htalhaou          #+#    #+#             */
-/*   Updated: 2022/12/02 18:11:06 by htalhaou         ###   ########.fr       */
+/*   Updated: 2022/12/11 16:30:34 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <fcntl.h>
 #include "so_long.h"
 
-int	*check_filename_ext(char *filename, char *ext)
+int	check_filename_ext(char *filename, char *ext)
 {
 	char	*dot;
 
 	dot = ft_strrchr(filename, '.');
 	if (!dot || dot == filename)
-		return (0);
-	if (ft_strncmp(ext, dot + 1, 3))
-		return (1);
+		exit (0);
+	return (ft_strncmp(ext, dot + 1, 3) == 0);
 }
 
-char	**check_map(char *filename)
+int	count_line(char *filename)
+{
+	int		count;
+	char	*line;
+	int		fd;
+
+	fd = open(filename, O_RDONLY);
+	if (!fd)
+		return (-1);
+	count = 0;
+	while (1)
+	{			
+		line = get_next_line(fd);
+		if (!line)
+			break ;
+		count++;
+		free (line);
+	}
+	close (fd);
+	return (count);
+}
+
+int	lentgh(char *line)
+{
+	int		i;
+
+	i = 0;
+	while (line[i] != '\n' && line[i])
+				i++;
+	return (i);
+}
+
+char	**read_map(char *filename)
 {
 	int		fd;
+	char	linecount;
+	int		i;
 	char	**map;
 
-	if (!check_filename_ext(filename, "ber"))
+	linecount = count_line(filename);
+	map = malloc(linecount + 1);
+	if (!map)
 		return (NULL);
-	fd = open("filename", O_RDONLY);
-	map = read_map(fd);
+	fd = open(filename, O_RDONLY);
+	i = 0;
+	while (1)
+	{
+		map[i] = get_next_line(fd);
+		if (!map[i])
+			break ;
+		i++;
+	}
+	close (fd);
+	return (map);
+}
+
+int	check_len(char **map)
+{
+	int		fd;
+	int		i;
+	int		len;
+
+	i = 0;
+	len = lentgh(map[i]);
+	while (map[i])
+	{
+		if (lentgh(map[i]) != len)
+			return (0);
+		i++;
+	}
+	return (1);
 }

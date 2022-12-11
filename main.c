@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/02 16:20:21 by htalhaou          #+#    #+#             */
-/*   Updated: 2022/12/11 19:10:24 by htalhaou         ###   ########.fr       */
+/*   Created: 2022/12/11 16:48:24 by htalhaou          #+#    #+#             */
+/*   Updated: 2022/12/11 19:08:35 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
-# include "li/libft.h"
-# include <fcntl.h>
-# include <mlx.h>
+#include "so_long.h"
 
-int		check_filename_ext(char *filename, char *ext);
-char	**read_map(char *filename);
-char	*map_all(int df);
-int		check_len(char **map);
-int		check_wall(char **map, char *filename);
-int		main(void);
+int	main(void)
+{
+	void	*mlx_ptr;
+	void	*win_ptr;
 
-#endif
+	mlx_ptr = mlx_init();
+	win_ptr = mlx_new_window(mlx_ptr, 500, 500, "so_long!");
+	mlx_loop(mlx_ptr);
+}
