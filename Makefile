@@ -6,16 +6,16 @@
 #    By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/29 22:15:48 by htalhaou          #+#    #+#              #
-#    Updated: 2022/12/02 18:01:58 by htalhaou         ###   ########.fr        #
+#    Updated: 2022/12/11 19:09:41 by htalhaou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
-SRCS = so_long.c
+SRCS = main.c
 
 NAME    = so_long
 
-CFLAGS   = -Wall -Wextra -Werror libft/libft.a libft/ft_printf/libftprintf.a
+CFLAGS   = -Wall -Wextra -Werror 
 	
 RM        = rm -f
 
@@ -23,7 +23,7 @@ RM        = rm -f
 	$(CC) $(CFLAGS) -Imlx -c $< -o $@
 
 $(NAME):
-	$(CC) $(SRCS) -Lmlx -lmlx -framework OpenGL -framework AppKit
+	$(CC) $(SRCS) -Lmlx -lmlx -framework OpenGL -framework AppKit li/libft.a
 	./a.out
 	
 all: $(NAME)
