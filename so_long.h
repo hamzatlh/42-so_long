@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 16:20:21 by htalhaou          #+#    #+#             */
-/*   Updated: 2022/12/11 19:10:24 by htalhaou         ###   ########.fr       */
+/*   Updated: 2022/12/12 03:15:08 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,46 @@
 # include <fcntl.h>
 # include <mlx.h>
 
+# define WALL '1'
+# define EMPTY '0'
+# define COLLECTIBLE 'C'
+# define PLAYER 'p'
+# define EXIT 'E'
+# define S 40
+
+typedef struct s_img
+{
+	void	*img;
+	int		x_img;
+	int		y_img;
+}t_img;
+
+typedef struct s_map
+{
+	int			x;
+	int			y;
+	char		**path;
+}t_map;
+
+typedef struct s_game
+{
+	void	*win;
+	void	*mlx;
+	t_map	map;
+	t_img	background;
+	t_img	wall;
+	t_img	collectible;
+	t_img	exit;
+	t_img	player;
+}t_game;
+
 int		check_filename_ext(char *filename, char *ext);
 char	**read_map(char *filename);
 char	*map_all(int df);
 int		check_len(char **map);
 int		check_wall(char **map, char *filename);
 int		main(void);
-
+void	img_init(t_game *game);
+void	backround(t_game *game);
+void	elements(t_game *game);
 #endif
