@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 16:20:21 by htalhaou          #+#    #+#             */
-/*   Updated: 2022/12/12 03:15:08 by htalhaou         ###   ########.fr       */
+/*   Updated: 2022/12/13 19:00:20 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include "li/libft.h"
 # include <fcntl.h>
 # include <mlx.h>
+# include<stdio.h>
 
 # define WALL '1'
 # define EMPTY '0'
@@ -34,7 +35,7 @@ typedef struct s_map
 {
 	int			x;
 	int			y;
-	char		**path;
+	char		**map;
 }t_map;
 
 typedef struct s_game
@@ -54,8 +55,11 @@ char	**read_map(char *filename);
 char	*map_all(int df);
 int		check_len(char **map);
 int		check_wall(char **map, char *filename);
-int		main(void);
-void	img_init(t_game *game);
+char	**print_m(char *filename);
+void	put_images(t_game *game);
 void	backround(t_game *game);
-void	elements(t_game *game);
+void	put_elements(t_game *game);
+int		lentgh(char *line);
+int		count_line(char *filename);
+
 #endif

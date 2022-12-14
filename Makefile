@@ -6,12 +6,12 @@
 #    By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/29 22:15:48 by htalhaou          #+#    #+#              #
-#    Updated: 2022/12/11 19:09:41 by htalhaou         ###   ########.fr        #
+#    Updated: 2022/12/13 19:01:09 by htalhaou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
-SRCS = main.c
+SRCS = *.c
 
 NAME    = so_long
 
@@ -23,7 +23,7 @@ RM        = rm -f
 	$(CC) $(CFLAGS) -Imlx -c $< -o $@
 
 $(NAME):
-	$(CC) $(SRCS) -Lmlx -lmlx -framework OpenGL -framework AppKit li/libft.a
+	$(CC) $(SRCS)  -lmlx -framework OpenGL -framework AppKit li/libft.a
 	./a.out
 	
 all: $(NAME)

@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 16:27:22 by htalhaou          #+#    #+#             */
-/*   Updated: 2022/12/11 18:56:39 by htalhaou         ###   ########.fr       */
+/*   Updated: 2022/12/13 19:05:27 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,41 +46,28 @@ void	check_character(char *c)
 	}
 }
 
-int	check_wall(char **map, char *filename)
+int	lentgh(char *line)
 {
 	int		i;
 
 	i = 0;
-	while (map[0][i])
-	{
-		if (map[0][i] != '1' && map[0][i] != '\n')
-			return (0);
-		i++;
-	}
-	i = 0;
-	while (map[count_line(filename) - 1][i])
-	{
-		if (map[count_line(filename) - 1][i] != '1' &&
-			map[count_line(filename) - 1][i] != '\n')
-			return (0);
-			i++;
-	}
-	return (1);
+	while (line[i] != '\n' && line[i])
+				i++;
+	return (i);
 }
 
-int	main(void)
+char	**print_m(char *filename)
 {
-	int		fd;
-	char	**map;
 	int		i;
-
-	fd = open("map.ber", O_RDONLY);
-	map = read_map("map.ber");
-	if (check_filename_ext("map.ber", "ber") == 0)
+	char **map;
+	int		
+	fd = open(filename, O_RDONLY);
+	map = read_map(filename);
+	if (check_filename_ext(filename, "ber") == 0)
 		return (0);
 	if (!check_len(map))
 		return (0);
-	if (!check_wall(map, "map.ber"))
+	if (!check_wall(map, filename))
 		return (0);
 	i = 0;
 	while (map[i])
@@ -90,8 +77,9 @@ int	main(void)
 			return (0);
 		else if (map[i][ft_strlen(map[0]) - 2] != '1')
 			return (0);
-		ft_printf("%s", map[i]);
+		// ft_printf("%s", map[i]);
 		i++;
 	}
 	close(fd);
+	return (map);
 }
