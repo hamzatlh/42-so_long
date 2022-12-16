@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 16:27:22 by htalhaou          #+#    #+#             */
-/*   Updated: 2022/12/13 19:05:27 by htalhaou         ###   ########.fr       */
+/*   Updated: 2022/12/15 18:13:22 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,35 @@ int	count_collect(char **map)
 {
 	int		i;
 	int		j;
-	int		c;
+	int		x;
+	int		y;
+	t_game game;
+	int		count_c;
+	int		count_e;
+	int		count_p;
 
+	count_c = 0;
+	count_e = 0;
+	count_p = 0;
 	i = 0;
-	c = 0;
 	while (map[i])
 	{
 		j = 0;
-		if (map[i][j] == 'C')
-			c++;
+		while (map[i][j])
+		{
+			if (map[i][j] == 'C')
+				count_c++;
+			else if (map[i][j] == 'P')
+				count_p++;
+			else if (map[i][j] == 'E')
+				count_e++;
+			j++;
+		}
 		i++;
-		j++;
 	}
-	return (c);
+	if (count_c < 1 || count_p != 1 || count_e != 1)
+		exit(0);
+	return (1);
 }
 
 void	check_character(char *c)
@@ -69,6 +85,8 @@ char	**print_m(char *filename)
 		return (0);
 	if (!check_wall(map, filename))
 		return (0);
+	if (!count_collect(map))
+		return (0);
 	i = 0;
 	while (map[i])
 	{
@@ -77,7 +95,6 @@ char	**print_m(char *filename)
 			return (0);
 		else if (map[i][ft_strlen(map[0]) - 2] != '1')
 			return (0);
-		// ft_printf("%s", map[i]);
 		i++;
 	}
 	close(fd);

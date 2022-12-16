@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 12:19:35 by htalhaou          #+#    #+#             */
-/*   Updated: 2022/12/11 16:30:34 by htalhaou         ###   ########.fr       */
+/*   Updated: 2022/12/15 13:20:14 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,15 +44,28 @@ int	count_line(char *filename)
 	return (count);
 }
 
-int	lentgh(char *line)
+int	check_wall(char **map, char *filename)
 {
 	int		i;
 
 	i = 0;
-	while (line[i] != '\n' && line[i])
-				i++;
-	return (i);
+	while (map[0][i])
+	{
+		if (map[0][i] != '1' && map[0][i] != '\n')
+			return (0);
+		i++;
+	}
+	i = 0;
+	while (map[count_line(filename) - 1][i])
+	{
+		if (map[count_line(filename) - 1][i] != '1' &&
+			map[count_line(filename) - 1][i] != '\n')
+			return (0);
+			i++;
+	}
+	return (1);
 }
+
 
 char	**read_map(char *filename)
 {
@@ -62,7 +75,7 @@ char	**read_map(char *filename)
 	char	**map;
 
 	linecount = count_line(filename);
-	map = malloc(linecount + 1);
+	map = (char **)malloc((linecount + 1) * sizeof(char *));
 	if (!map)
 		return (NULL);
 	fd = open(filename, O_RDONLY);
@@ -80,7 +93,6 @@ char	**read_map(char *filename)
 
 int	check_len(char **map)
 {
-	int		fd;
 	int		i;
 	int		len;
 

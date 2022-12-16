@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 16:20:21 by htalhaou          #+#    #+#             */
-/*   Updated: 2022/12/13 19:00:20 by htalhaou         ###   ########.fr       */
+/*   Updated: 2022/12/15 20:04:02 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,13 @@ typedef struct s_map
 	char		**map;
 }t_map;
 
+typedef struct s_count_elem
+{
+	int		count_c;
+	int		count_e;
+	int		count_p;
+}t_count_elem;
+
 typedef struct s_game
 {
 	void	*win;
@@ -50,6 +57,7 @@ typedef struct s_game
 	t_img	player;
 }t_game;
 
+
 int		check_filename_ext(char *filename, char *ext);
 char	**read_map(char *filename);
 char	*map_all(int df);
@@ -61,5 +69,6 @@ void	backround(t_game *game);
 void	put_elements(t_game *game);
 int		lentgh(char *line);
 int		count_line(char *filename);
+int		count_collect(char **map);
 
 #endif

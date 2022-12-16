@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 16:48:24 by htalhaou          #+#    #+#             */
-/*   Updated: 2022/12/13 19:07:17 by htalhaou         ###   ########.fr       */
+/*   Updated: 2022/12/16 14:51:25 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	put_images(t_game *game)
 {
 	game->background.img = mlx_xpm_file_to_image(game->mlx, "./assets/back.xpm",&game->background.x_img, &game->background.y_img);
-	game->wall.img = mlx_xpm_file_to_image(game->mlx, "./assets/wall.xpm", &game->wall.x_img, &game->wall.y_img);
+	game->wall.img = mlx_xpm_file_to_image(game->mlx, "./assets/15.xpm", &game->wall.x_img, &game->wall.y_img);
 	game->collectible.img = mlx_xpm_file_to_image(game->mlx, "./assets/7_1.xpm", &game->collectible.x_img, &game->collectible.y_img);
 	game->exit.img = mlx_xpm_file_to_image(game->mlx, "./assets/12.xpm", &game->exit.x_img, &game->exit.y_img);
 	game->player.img = mlx_xpm_file_to_image(game->mlx, "./assets/0.xpm", &game->player.x_img,&game->player.y_img);
@@ -27,16 +27,16 @@ void	backround(t_game *game)
 	int	y;
 	int	i;
 
-	y = 0;
-	while (y < game->map.y * S)
+	x = 0;
+	while (x < game->map.x * S)
 	{
-		x = 0;
-		while (x < game->map.x * S)
+		y = 0;
+		while (y < game->map.y * S)
 		{
-			mlx_put_image_to_window(game->mlx, game->win, game->background.img, x, y);
-			x += S;
+			mlx_put_image_to_window(game->mlx, game->win, game->background.img, y, x);
+			y += S;
 		}
-		y += S;
+		x += S;
 	}
 }
 
