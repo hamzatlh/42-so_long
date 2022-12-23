@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 22:06:44 by htalhaou          #+#    #+#             */
-/*   Updated: 2022/12/23 01:10:31 by htalhaou         ###   ########.fr       */
+/*   Updated: 2022/12/23 01:40:44 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void ft_move_up(t_game *game)
 {
 	if (game->map.map[game->map.player.x][game->map.player.y] == 'P')
 	{	
-		if (game->map.map[game->map.player.x - 1][game->map.player.y] == '0')
+		if (game->map.map[game->map.player.x - 1][game->map.player.y] != '1')
 			{
 				game->map.map[game->map.player.x][game->map.player.y] = '0';
 				game->map.map[game->map.player.x - 1][game->map.player.y] = 'P';
@@ -38,7 +38,7 @@ void ft_move_down(t_game *game)
 {
 	if (game->map.map[game->map.player.x][game->map.player.y] == 'P')
 	{	
-		if (game->map.map[game->map.player.x + 1][game->map.player.y] == '0')
+		if (game->map.map[game->map.player.x + 1][game->map.player.y] != '1')
 			{
 				game->map.map[game->map.player.x][game->map.player.y] = '0';
 				game->map.map[game->map.player.x + 1][game->map.player.y] = 'P';
@@ -59,7 +59,7 @@ void ft_move_left(t_game *game)
 {
 	if (game->map.map[game->map.player.x][game->map.player.y] == 'P')
 	{
-		if (game->map.map[game->map.player.x][game->map.player.y - 1] == '0')
+		if (game->map.map[game->map.player.x][game->map.player.y - 1] != '1')
 			{
 				game->map.map[game->map.player.x][game->map.player.y] = '0';
 				game->map.map[game->map.player.x][game->map.player.y - 1] = 'P';
@@ -80,7 +80,7 @@ void ft_move_right(t_game *game)
 {
 	if (game->map.map[game->map.player.x][game->map.player.y] == 'P')
 	{
-		if (game->map.map[game->map.player.x][game->map.player.y + 1] == '0')
+		if (game->map.map[game->map.player.x][game->map.player.y + 1] != '1')
 			{
 				game->map.map[game->map.player.x][game->map.player.y] = '0';
 				game->map.map[game->map.player.x][game->map.player.y + 1] = 'P';
