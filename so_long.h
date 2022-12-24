@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 16:20:21 by htalhaou          #+#    #+#             */
-/*   Updated: 2022/12/22 22:35:21 by htalhaou         ###   ########.fr       */
+/*   Updated: 2022/12/24 19:53:58 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,11 @@ typedef struct s_map
 	int			x;
 	int			y;
 	char		**map;
+	int			mv;
+	t_xy		exit;
+	t_xy		exit_ouvert;
 	t_xy		player;
+
 }t_map;
 
 typedef struct s_count_elem
@@ -54,13 +58,14 @@ typedef struct s_game
 {
 	void	*win;
 	void	*mlx;
-	int		collectibles;
+	int 	count_C;
 	t_map	map;
 	t_img	background;
 	t_img	wall;
 	t_img	collectible;
 	t_img	exit;
 	t_img	player;
+	t_img	exit_ouvert;
 }t_game;
 
 int		check_filename_ext(char *filename, char *ext);
@@ -68,12 +73,12 @@ char	**read_map(char *filename);
 char	*map_all(int df);
 int		check_len(char **map);
 int		check_wall(char **map, char *filename);
-char	**print_m(char *filename);
+char	**print_m(char *filename, t_game *tmp);
 void	put_images(t_game *game);
 void	backround(t_game *game);
 void	put_elements(t_game *game);
 int		lentgh(char *line);
 int		count_line(char *filename);
-int		count_collect(char **map);
+int		count_collect(char **map, t_game *tmp);
 int		ft_keypress(int key, t_game *game);
 #endif
