@@ -6,24 +6,19 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 16:27:22 by htalhaou          #+#    #+#             */
-/*   Updated: 2022/12/15 18:13:22 by htalhaou         ###   ########.fr       */
+/*   Updated: 2022/12/24 22:57:01 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	count_collect(char **map)
+int	count_collect(char **map, t_game *tmp)
 {
 	int		i;
 	int		j;
-	int		x;
-	int		y;
-	t_game game;
-	int		count_c;
 	int		count_e;
 	int		count_p;
 
-	count_c = 0;
 	count_e = 0;
 	count_p = 0;
 	i = 0;
@@ -33,7 +28,7 @@ int	count_collect(char **map)
 		while (map[i][j])
 		{
 			if (map[i][j] == 'C')
-				count_c++;
+				tmp->count_C++;
 			else if (map[i][j] == 'P')
 				count_p++;
 			else if (map[i][j] == 'E')
@@ -42,8 +37,12 @@ int	count_collect(char **map)
 		}
 		i++;
 	}
-	if (count_c < 1 || count_p != 1 || count_e != 1)
-		exit(0);
+	printf("%d\n", tmp->count_C);
+	if (tmp->count_C < 1 || count_p != 1 || count_e != 1)
+		{
+			ft_printf("Error\n<<Duplicate charactere or not enogh collectibles>> are Detected");
+			exit(0);
+		}
 	return (1);
 }
 
@@ -57,7 +56,10 @@ void	check_character(char *c)
 	{
 		if (c[i] != 'E' && c[i] != 'P' && c[i] != 'C'
 			&& c[i] != '1' && c[i] != '0' && c[i] != '\n')
-			exit(0);
+			{
+				ft_printf("Error\nCheck Character fail");	
+				exit(0);
+			}
 		i++;
 	}
 }
@@ -72,20 +74,19 @@ int	lentgh(char *line)
 	return (i);
 }
 
-char	**print_m(char *filename)
+char	**print_m(char *filename, t_game *tmp)
 {
 	int		i;
 	char **map;
-	int		
+	int		fd;
 	fd = open(filename, O_RDONLY);
 	map = read_map(filename);
-	if (check_filename_ext(filename, "ber") == 0)
-		return (0);
-	if (!check_len(map))
-		return (0);
-	if (!check_wall(map, filename))
-		return (0);
-	if (!count_collect(map))
+	if (!check_filename_ext(filename, "ber") || !check_len(map) || !check_wall(map, filename))
+		{
+			ft_printf("Error\nCheck <<Wall || len || name>> fail");
+			exit (0);
+		}
+	if (!count_collect(map, tmp))
 		return (0);
 	i = 0;
 	while (map[i])

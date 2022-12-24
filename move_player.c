@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 22:06:44 by htalhaou          #+#    #+#             */
-/*   Updated: 2022/12/24 20:03:18 by htalhaou         ###   ########.fr       */
+/*   Updated: 2022/12/24 23:49:14 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void ft_move_up(t_game *game)
 			game->map.mv++;
 			put_elements(game);
 		}
-	ft_printf("\n-->%d steps -->%d collected \n ", game->map.mv, game->count_C);
+	ft_printf("\n-->%d steps -->%d to collecte \n ", game->map.mv, game->count_C);
 }
 
 void ft_move_down(t_game *game)
@@ -69,7 +69,7 @@ void ft_move_down(t_game *game)
 			game->map.mv++;
 			put_elements(game);
 		}
-	ft_printf("\n-->%d steps -->%d collected \n ", game->map.mv, game->count_C);
+	ft_printf("\n-->%d steps -->%d to collecte \n ", game->map.mv, game->count_C);
 }
 
 void ft_move_left(t_game *game)
@@ -98,7 +98,7 @@ void ft_move_left(t_game *game)
 			game->map.mv++;
 			put_elements(game);
 		}
-	ft_printf("\n-->%d steps -->%d collected \n ", game->map.mv, game->count_C);
+	ft_printf("\n-->%d steps -->%d to collecte \n ", game->map.mv, game->count_C);
 }
 
 void ft_move_right(t_game *game)
@@ -127,7 +127,7 @@ void ft_move_right(t_game *game)
 			game->map.mv++;
 			put_elements(game);
 		}
-	ft_printf("\n-->%d steps -->%d collected \n ", game->map.mv, game->count_C);
+	ft_printf("\n-->%d steps -->%d to collecte \n ", game->map.mv, game->count_C);
 }
 
 int	ft_keypress(int key, t_game *game)
