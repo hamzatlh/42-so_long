@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 22:06:44 by htalhaou          #+#    #+#             */
-/*   Updated: 2022/12/24 23:49:14 by htalhaou         ###   ########.fr       */
+/*   Updated: 2022/12/27 03:25:12 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,12 @@ void ft_move_up(t_game *game)
  				put_elements(game);
 			}
 			if (game->count_C == 0)
-			{
 				game->map.map[game->map.exit.x][game->map.exit.y] = 'e';
-			}
 			if (game->map.map[game->map.player.x - 1][game->map.player.y] == 'e')
-			{
-				exit(0);
-			}
+				{
+					ft_printf("you win\n");
+					exit(0);
+				}
 			game->map.map[game->map.player.x - 1][game->map.player.y] = 'P';
 			game->map.player.x--;
 			game->map.mv++;
@@ -57,11 +56,10 @@ void ft_move_down(t_game *game)
 
 				}
 			if (game->count_C == 0)
-				{
 					game->map.map[game->map.exit.x][game->map.exit.y] = 'e';
-				}
 			if (game->map.map[game->map.player.x + 1][game->map.player.y] == 'e')
 				{
+					ft_printf("you win\n");
 					exit(0);
 				}
 			game->map.map[game->map.player.x + 1][game->map.player.y] = 'P';
@@ -86,11 +84,10 @@ void ft_move_left(t_game *game)
  					put_elements(game);
 				}
 			if (game->count_C == 0)
-				{
 					game->map.map[game->map.exit.x][game->map.exit.y] = 'e';
-				}
 			if (game->map.map[game->map.player.x][game->map.player.y - 1] == 'e')
 				{
+					ft_printf("you win\n");
 					exit(0);
 				}
 			game->map.map[game->map.player.x][game->map.player.y - 1] = 'P';
@@ -115,11 +112,10 @@ void ft_move_right(t_game *game)
  					put_elements(game);
 				}
 			if (game->count_C == 0)
-				{
 					game->map.map[game->map.exit.x][game->map.exit.y] = 'e';
-				}
 			if (game->map.map[game->map.player.x][game->map.player.y + 1] == 'e')
 				{
+					ft_printf("you win\n");
 					exit(0);
 				}
 			game->map.map[game->map.player.x][game->map.player.y + 1] = 'P';
@@ -132,7 +128,9 @@ void ft_move_right(t_game *game)
 
 int	ft_keypress(int key, t_game *game)
 {
-	if (key == W || key == 126)
+	if (key == ESC)
+		exit_game(game);
+	else if (key == W || key == 126)
 		ft_move_up(game);
 	else if (key == A || key == 125)
 		ft_move_down(game);

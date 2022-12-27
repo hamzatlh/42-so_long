@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 16:20:21 by htalhaou          #+#    #+#             */
-/*   Updated: 2022/12/24 19:53:58 by htalhaou         ###   ########.fr       */
+/*   Updated: 2022/12/27 03:25:41 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,12 @@
 # include <fcntl.h>
 # include <mlx.h>
 # include <stdio.h>
-# define Sq 40
+# define Sq 60
 # define W 13
-# define A 1
-# define S 0
+# define A 0
+# define S 1
 # define D 2
+# define ESC 53
 
 typedef struct s_img
 {
@@ -47,18 +48,13 @@ typedef struct s_map
 
 }t_map;
 
-typedef struct s_count_elem
-{
-	int		count_c;
-	int		count_e;
-	int		count_p;
-}t_count_elem;
-
 typedef struct s_game
 {
 	void	*win;
 	void	*mlx;
 	int 	count_C;
+	int 	count_P;
+	int 	count_E;
 	t_map	map;
 	t_img	background;
 	t_img	wall;
@@ -70,7 +66,6 @@ typedef struct s_game
 
 int		check_filename_ext(char *filename, char *ext);
 char	**read_map(char *filename);
-char	*map_all(int df);
 int		check_len(char **map);
 int		check_wall(char **map, char *filename);
 char	**print_m(char *filename, t_game *tmp);
@@ -81,4 +76,5 @@ int		lentgh(char *line);
 int		count_line(char *filename);
 int		count_collect(char **map, t_game *tmp);
 int		ft_keypress(int key, t_game *game);
+void	exit_game(t_game *game);
 #endif

@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 12:19:35 by htalhaou          #+#    #+#             */
-/*   Updated: 2022/12/24 22:16:27 by htalhaou         ###   ########.fr       */
+/*   Updated: 2022/12/27 01:17:16 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,28 +67,14 @@ int	check_wall(char **map, char *filename)
 }
 
 
-char	**read_map(char *filename)
+int	lentgh(char *line)
 {
-	int		fd;
-	char	linecount;
 	int		i;
-	char	**map;
 
-	linecount = count_line(filename);
-	map = (char **)malloc((linecount + 1) * sizeof(char *));
-	if (!map)
-		return (NULL);
-	fd = open(filename, O_RDONLY);
 	i = 0;
-	while (1)
-	{
-		map[i] = get_next_line(fd);
-		if (!map[i])
-			break ;
-		i++;
-	}
-	close (fd);
-	return (map);
+	while (line[i] != '\n' && line[i])
+				i++;
+	return (i);
 }
 
 int	check_len(char **map)

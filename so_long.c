@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 16:48:24 by htalhaou          #+#    #+#             */
-/*   Updated: 2022/12/24 20:08:19 by htalhaou         ###   ########.fr       */
+/*   Updated: 2022/12/27 03:11:49 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,15 +78,24 @@ void	put_elements(t_game *game)
 	}
 }
 
-int	main()
+int	main(int ac, char **av)
 {
 	t_game game;
-	
+
+	int		fd;
+
+	if (ac == 2)
+	{
+		fd = open(av[1], O_RDONLY);
+		if (fd <= 0)
+			ft_printf("Error\nFile open fail.\n");
 	game.count_C = 0;
+	game.count_E = 0;
+	game.count_P = 0;
 	game.map.mv = 0;
-	game.map.map = print_m("map.ber", &game);
+	game.map.map = print_m(av[1], &game);
 	game.map.y = ft_strlen(game.map.map[0]) - 1;
-	game.map.x = count_line("map.ber");
+	game.map.x = count_line(av[1]);
 	game.mlx = mlx_init();
 	game.win = mlx_new_window(game.mlx, game.map.y * Sq, game.map.x * Sq, "so_long");
 	put_images(&game);
@@ -94,4 +103,8 @@ int	main()
 	put_elements(&game);
 	mlx_hook(game.win, 2, 0, ft_keypress, &game);
 	mlx_loop(game.mlx);
+	}
+	else
+		ft_printf("Error\nMap is missing.\n");
+	return (0);
 }
