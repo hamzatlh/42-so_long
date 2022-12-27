@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 22:06:44 by htalhaou          #+#    #+#             */
-/*   Updated: 2022/12/27 03:25:12 by htalhaou         ###   ########.fr       */
+/*   Updated: 2022/12/27 03:52:12 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void ft_move_up(t_game *game)
 				game->map.map[game->map.exit.x][game->map.exit.y] = 'e';
 			if (game->map.map[game->map.player.x - 1][game->map.player.y] == 'e')
 				{
-					ft_printf("you win\n");
+					ft_printf("\n\n\n\n\nCongratulations bro !! you win\n\n\n\n\n");
 					exit(0);
 				}
 			game->map.map[game->map.player.x - 1][game->map.player.y] = 'P';
@@ -38,7 +38,6 @@ void ft_move_up(t_game *game)
 			game->map.mv++;
 			put_elements(game);
 		}
-	ft_printf("\n-->%d steps -->%d to collecte \n ", game->map.mv, game->count_C);
 }
 
 void ft_move_down(t_game *game)
@@ -59,7 +58,7 @@ void ft_move_down(t_game *game)
 					game->map.map[game->map.exit.x][game->map.exit.y] = 'e';
 			if (game->map.map[game->map.player.x + 1][game->map.player.y] == 'e')
 				{
-					ft_printf("you win\n");
+					ft_printf("\n\n\n\n\nCongratulations bro !! you win\n\n\n\n\n");
 					exit(0);
 				}
 			game->map.map[game->map.player.x + 1][game->map.player.y] = 'P';
@@ -67,7 +66,6 @@ void ft_move_down(t_game *game)
 			game->map.mv++;
 			put_elements(game);
 		}
-	ft_printf("\n-->%d steps -->%d to collecte \n ", game->map.mv, game->count_C);
 }
 
 void ft_move_left(t_game *game)
@@ -87,7 +85,7 @@ void ft_move_left(t_game *game)
 					game->map.map[game->map.exit.x][game->map.exit.y] = 'e';
 			if (game->map.map[game->map.player.x][game->map.player.y - 1] == 'e')
 				{
-					ft_printf("you win\n");
+					ft_printf("\n\n\n\n\nCongratulations bro !! you win\n\n\n\n\n");
 					exit(0);
 				}
 			game->map.map[game->map.player.x][game->map.player.y - 1] = 'P';
@@ -95,7 +93,6 @@ void ft_move_left(t_game *game)
 			game->map.mv++;
 			put_elements(game);
 		}
-	ft_printf("\n-->%d steps -->%d to collecte \n ", game->map.mv, game->count_C);
 }
 
 void ft_move_right(t_game *game)
@@ -115,7 +112,7 @@ void ft_move_right(t_game *game)
 					game->map.map[game->map.exit.x][game->map.exit.y] = 'e';
 			if (game->map.map[game->map.player.x][game->map.player.y + 1] == 'e')
 				{
-					ft_printf("you win\n");
+					ft_printf("\n\n\n\n\nCongratulations bro !! you win\n\n\n\n\n");
 					exit(0);
 				}
 			game->map.map[game->map.player.x][game->map.player.y + 1] = 'P';
@@ -123,13 +120,15 @@ void ft_move_right(t_game *game)
 			game->map.mv++;
 			put_elements(game);
 		}
-	ft_printf("\n-->%d steps -->%d to collecte \n ", game->map.mv, game->count_C);
 }
 
 int	ft_keypress(int key, t_game *game)
 {
 	if (key == ESC)
+	{
+		ft_printf("what the fuck are you doing bro !!!?\n");
 		exit_game(game);
+	}
 	else if (key == W || key == 126)
 		ft_move_up(game);
 	else if (key == A || key == 125)
@@ -138,5 +137,6 @@ int	ft_keypress(int key, t_game *game)
 		ft_move_right(game);
 	else if (key == S || key == 123)
 		ft_move_left(game);
+	ft_printf("\n-->%d Steps -->%d To Collecte \n ", game->map.mv, game->count_C);
 	return (0);
 }
