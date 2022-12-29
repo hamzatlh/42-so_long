@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 17:04:53 by htalhaou          #+#    #+#             */
-/*   Updated: 2022/12/29 22:37:21 by htalhaou         ###   ########.fr       */
+/*   Updated: 2022/12/29 23:17:54 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,8 @@ int	check_map_path(char **copy_map)
 	int	j;
 
 	path(copy_map);
+	i = 0;
+	j = 0;
 	while (copy_map[i])
 	{
 		ft_printf("%s", copy_map[i]);
