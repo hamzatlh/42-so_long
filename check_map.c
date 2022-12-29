@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 12:19:35 by htalhaou          #+#    #+#             */
-/*   Updated: 2022/12/27 01:17:16 by htalhaou         ###   ########.fr       */
+/*   Updated: 2022/12/29 21:55:36 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,6 @@ int	check_wall(char **map, char *filename)
 	}
 	return (1);
 }
-
 
 int	lentgh(char *line)
 {

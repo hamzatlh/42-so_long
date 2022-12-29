@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 17:04:53 by htalhaou          #+#    #+#             */
-/*   Updated: 2022/12/29 03:53:41 by htalhaou         ###   ########.fr       */
+/*   Updated: 2022/12/29 22:37:21 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ char	**copy(char *filename)
 	}
 	if (!check_map_path(copy_map))
 	{
-		ft_printf("hhh");
-		exit(0) ;
+		ft_printf("\ninvalid_path\n");
+		exit (0);
 	}
 	close (fd);
 	return (copy_map);
@@ -43,26 +43,30 @@ char	**copy(char *filename)
 
 void	get_posi(char **copy_map, int x, int y, int *i)
 {
-	if (copy_map[x][y - 1] == '0' || copy_map[x][y - 1] == 'C')
-		{
-			copy_map[x][y - 1] = 'P';
-			*i = 1;
-		}
-	if (copy_map[x][y + 1] == '0' || copy_map[x][y + 1] == 'C')
-		{
-			copy_map[x][y + 1] = 'P';
-			*i = 1;
-		}
-	if (copy_map[x - 1][y] == '0' || copy_map[x - 1][y] == 'C')
-		{
-			copy_map[x - 1][y] = 'P';
-			*i = 1;
-		}
-	if (copy_map[x + 1][y] == '0' || copy_map[x + 1][y] == 'C')
-		{
-			copy_map[x + 1][y] = 'P';
-			*i = 1;
-		}
+	if (copy_map[x][y - 1] == '0' ||
+			copy_map[x][y - 1] == 'C' || copy_map[x][y - 1] == 'E')
+	{
+		copy_map[x][y - 1] = 'P';
+		*i = 1;
+	}
+	if (copy_map[x][y + 1] == '0' ||
+		copy_map[x][y + 1] == 'C' || copy_map[x][y + 1] == 'E')
+	{
+		copy_map[x][y + 1] = 'P';
+		*i = 1;
+	}
+	if (copy_map[x - 1][y] == '0' ||
+		copy_map[x - 1][y] == 'C' || copy_map[x - 1][y] == 'E')
+	{
+		copy_map[x - 1][y] = 'P';
+		*i = 1;
+	}
+	if (copy_map[x + 1][y] == '0' ||
+		copy_map[x + 1][y] == 'C' || copy_map[x + 1][y] == 'E')
+	{
+		copy_map[x + 1][y] = 'P';
+		*i = 1;
+	}
 }
 
 void	path(char **copy_map)
@@ -91,20 +95,23 @@ void	path(char **copy_map)
 	}
 }
 
-char **check_map_path(char **copy_map)
+int	check_map_path(char **copy_map)
 {
+	int	i;
+	int	j;
+
 	path(copy_map);
-	int i = 0;
-	int j = 0;
 	while (copy_map[i])
-	{	ft_printf("%s", copy_map[i]);
-		while(copy_map[i][j])
+	{
+		ft_printf("%s", copy_map[i]);
+		while (copy_map[i][j])
 		{
-			if(copy_map[i][j] == 'C')
+			if (copy_map[i][j] == 'C' || copy_map[i][j] == 'E')
 				return (0);
 			j++;
 		}
+		j = 0;
 		i++;
 	}
-	return (copy_map);
+	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 16:20:21 by htalhaou          #+#    #+#             */
-/*   Updated: 2022/12/27 03:25:41 by htalhaou         ###   ########.fr       */
+/*   Updated: 2022/12/29 22:11:09 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <fcntl.h>
 # include <mlx.h>
 # include <stdio.h>
-# define Sq 60
+# define SQ 40
 # define W 13
 # define A 0
 # define S 1
@@ -33,7 +33,7 @@ typedef struct s_img
 typedef struct s_xy
 {
 	int	x;
-	int y;
+	int	y;
 }t_xy;
 
 typedef struct s_map
@@ -45,6 +45,7 @@ typedef struct s_map
 	t_xy		exit;
 	t_xy		exit_ouvert;
 	t_xy		player;
+	t_xy		queue;
 
 }t_map;
 
@@ -52,9 +53,9 @@ typedef struct s_game
 {
 	void	*win;
 	void	*mlx;
-	int 	count_C;
-	int 	count_P;
-	int 	count_E;
+	int		count_c;
+	int		count_p;
+	int		count_e;
 	t_map	map;
 	t_img	background;
 	t_img	wall;
@@ -77,4 +78,11 @@ int		count_line(char *filename);
 int		count_collect(char **map, t_game *tmp);
 int		ft_keypress(int key, t_game *game);
 void	exit_game(t_game *game);
+int		check_map_path(char **copy_map);
+char	**copy(char *filename);
+void	init(t_game *game);
+void	game_initial(t_game *game);
+void	check_epc(char **map, t_game *game);
+void	ft_images(t_game *game);
+
 #endif

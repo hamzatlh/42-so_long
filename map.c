@@ -6,13 +6,13 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 16:27:22 by htalhaou          #+#    #+#             */
-/*   Updated: 2022/12/27 01:14:15 by htalhaou         ###   ########.fr       */
+/*   Updated: 2022/12/29 22:14:21 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	count_collect(char **map, t_game *tmp)
+int	count_collect(char **map, t_game *game)
 {
 	int		i;
 	int		j;
@@ -24,22 +24,27 @@ int	count_collect(char **map, t_game *tmp)
 		while (map[i][j])
 		{
 			if (map[i][j] == 'C')
-				tmp->count_C++;
+				game->count_c++;
 			else if (map[i][j] == 'P')
-				tmp->count_P++;
+				game->count_p++;
 			else if (map[i][j] == 'E')
-				tmp->count_E++;
+				game->count_e++;
 			j++;
 		}
 		i++;
 	}
-	printf("%d\n", tmp->count_C);
-	if (tmp->count_C < 1 || tmp->count_P != 1 || tmp->count_E != 1)
-		{
-			ft_printf("Error\n<<Duplicate charactere or not enogh collectibles>> are Detected");
-			exit(0);
-		}
 	return (1);
+}
+
+void	check_epc(char **map, t_game *game)
+{
+	ft_printf("\n\nyou have %d collectibles\n", game->count_c);
+	if (game->count_c < 1 || game->count_p != 1 || game->count_e != 1)
+	{
+		ft_printf("Error\n<<Duplicate charactere\
+			or not enogh collectibles>> are Detected");
+		exit(0);
+	}
 }
 
 char	**read_map(char *filename)
@@ -54,6 +59,8 @@ char	**read_map(char *filename)
 	if (!map)
 		return (NULL);
 	fd = open(filename, O_RDONLY);
+	if (!fd || fd <= 0)
+		return (0);
 	i = 0;
 	while (1)
 	{
@@ -68,7 +75,6 @@ char	**read_map(char *filename)
 
 void	check_character(char *c)
 {
-	int	linecount;
 	int	i;
 
 	i = 0;
@@ -76,10 +82,10 @@ void	check_character(char *c)
 	{
 		if (c[i] != 'E' && c[i] != 'P' && c[i] != 'C'
 			&& c[i] != '1' && c[i] != '0' && c[i] != '\n')
-			{
-				ft_printf("Error\nCheck Character fail");	
-				exit(0);
-			}
+		{
+			ft_printf("Error\nCheck Characters fail");
+			exit(0);
+		}
 		i++;
 	}
 }
@@ -87,17 +93,18 @@ void	check_character(char *c)
 char	**print_m(char *filename, t_game *tmp)
 {
 	int		i;
-	char **map;
+	char	**map;
 	int		fd;
+
 	fd = open(filename, O_RDONLY);
 	map = read_map(filename);
-	if (!check_filename_ext(filename, "ber") || !check_len(map) || !check_wall(map, filename))
-		{
-			ft_printf("Error\nCheck <<Wall || len || name>> fail\n");
-			exit (0);
-		}
-	if (!count_collect(map, tmp))
-		return (0);
+	if (!check_filename_ext(filename, "ber") || \
+	!check_len(map) || !check_wall(map, filename) || !count_collect(map, tmp))
+	{
+		ft_printf("Error\nCheck <<Wall || len || name || >> fail\n");
+		exit (0);
+	}
+	check_epc(map, tmp);
 	i = 0;
 	while (map[i])
 	{
