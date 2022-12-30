@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 16:20:21 by htalhaou          #+#    #+#             */
-/*   Updated: 2022/12/29 22:11:09 by htalhaou         ###   ########.fr       */
+/*   Updated: 2022/12/30 15:36:58 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,5 +84,7 @@ void	init(t_game *game);
 void	game_initial(t_game *game);
 void	check_epc(char **map, t_game *game);
 void	ft_images(t_game *game);
+void	put_exit(t_game *game, int x, int y);
+void	pu_2(t_game *game, int x, int y);
 
 #endif
