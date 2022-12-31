@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 16:20:21 by htalhaou          #+#    #+#             */
-/*   Updated: 2022/12/31 19:42:01 by htalhaou         ###   ########.fr       */
+/*   Updated: 2022/12/31 22:41:09 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,8 @@ typedef struct s_game
 	int		count_c;
 	int		count_p;
 	int		count_e;
+	int		wind_x;
+	int		wind_y;	
 	t_map	map;
 	t_img	background;
 	t_img	wall;
@@ -83,7 +85,7 @@ int		lentgh(char *line);
 int		count_line(char *filename);
 int		count_collect(char **map, t_game *tmp);
 int		ft_keypress(int key, t_game *game);
-void	exit_game(t_game *game);
+int		exit_game(t_game *game);
 int		check_map_path(char **copy_map);
 char	**copy(char *filename);
 void	init(t_game *game);

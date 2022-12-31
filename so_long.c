@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 16:48:24 by htalhaou          #+#    #+#             */
-/*   Updated: 2022/12/31 17:48:23 by htalhaou         ###   ########.fr       */
+/*   Updated: 2022/12/31 22:33:07 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,10 @@ void	backround(t_game *game)
 
 void	put_elements(t_game *game)
 {
-	int	x;
-	int	y;
+	int		x;
+	int		y;
+	char	*str;
+	char	*num;
 
 	x = 0;
 	while (x < game->map.x)
@@ -65,6 +67,12 @@ void	put_elements(t_game *game)
 		}
 		x++;
 	}
+	num = ft_itoa(game->map.mv);
+	str = ft_strjoin_gnl(ft_strdup_gnl("number of moves : "), num);
+	mlx_string_put(game->mlx, game->win, game->wind_x * SQ,
+		game->wind_y * SQ, 0x0FAE1, str);
+	free (num);
+	free (str);
 }
 
 void	put_exit(t_game *game, int x, int y)

@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 19:22:33 by htalhaou          #+#    #+#             */
-/*   Updated: 2022/12/31 17:53:41 by htalhaou         ###   ########.fr       */
+/*   Updated: 2022/12/31 22:39:24 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ void	init(t_game *game)
 		game->map.mv = 0;
 		game->map.player.x = 0;
 		game->map.player.y = 0;
+		game->wind_x = 0;
+		game->wind_y = 0;
 }
 
 void	game_initial(t_game *game)
@@ -53,6 +55,7 @@ int	main(int ac, char **av)
 		game.map.x = count_line(av[1]);
 		game_initial(&game);
 		mlx_hook(game.win, 2, 0, ft_keypress, &game);
+		mlx_hook(game.win, 17, 0, exit_game, &game);
 		mlx_loop(game.mlx);
 	}
 	ft_printf("Error\nMap makynach\n");
