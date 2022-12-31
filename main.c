@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 19:22:33 by htalhaou          #+#    #+#             */
-/*   Updated: 2022/12/30 12:49:24 by htalhaou         ###   ########.fr       */
+/*   Updated: 2022/12/31 17:53:41 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ int	main(int ac, char **av)
 {
 	t_game	game;
 	int		fd;
+	int		key;
 
 	if (ac == 2)
 	{

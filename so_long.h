@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 16:20:21 by htalhaou          #+#    #+#             */
-/*   Updated: 2022/12/30 15:36:58 by htalhaou         ###   ########.fr       */
+/*   Updated: 2022/12/31 19:42:01 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ typedef struct s_img
 	void	*img;
 	int		x_img;
 	int		y_img;
+	void	*p;
 }t_img;
 
 typedef struct s_xy
@@ -45,6 +46,9 @@ typedef struct s_map
 	t_xy		exit;
 	t_xy		exit_ouvert;
 	t_xy		player;
+	t_xy		player_down;
+	t_xy		player_up;
+	t_xy		player_left;
 	t_xy		queue;
 
 }t_map;
@@ -62,6 +66,9 @@ typedef struct s_game
 	t_img	collectible;
 	t_img	exit;
 	t_img	player;
+	t_img	player_down;
+	t_img	player_left;
+	t_img	player_up;
 	t_img	exit_ouvert;
 }t_game;
 
@@ -72,7 +79,6 @@ int		check_wall(char **map, char *filename);
 char	**print_m(char *filename, t_game *tmp);
 void	put_images(t_game *game);
 void	backround(t_game *game);
-void	put_elements(t_game *game);
 int		lentgh(char *line);
 int		count_line(char *filename);
 int		count_collect(char **map, t_game *tmp);
@@ -86,5 +92,7 @@ void	check_epc(char **map, t_game *game);
 void	ft_images(t_game *game);
 void	put_exit(t_game *game, int x, int y);
 void	pu_2(t_game *game, int x, int y);
+void	put_elements(t_game *game);
+void	update_player(t_game *game, char s);
 
 #endif

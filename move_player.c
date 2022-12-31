@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 22:06:44 by htalhaou          #+#    #+#             */
-/*   Updated: 2022/12/30 15:28:03 by htalhaou         ###   ########.fr       */
+/*   Updated: 2022/12/31 19:48:11 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void	ft_move_up(t_game *game)
 			ft_printf("\n\n\n\n\nCongratulations bro !! you win\n\n\n\n\n");
 			exit(0);
 		}
+		update_player(game, 'u');
 		game->map.map[game->map.player.x - 1][game->map.player.y] = 'P';
 		game->map.player.x--;
 		game->map.mv++;
@@ -59,6 +60,7 @@ void	ft_move_down(t_game *game)
 			ft_printf("\n\n\n\n\nCongratulations bro !! you win\n\n\n\n\n");
 			exit(0);
 		}
+		update_player(game, 'd');
 		game->map.map[game->map.player.x + 1][game->map.player.y] = 'P';
 		game->map.player.x++;
 		game->map.mv++;
@@ -86,6 +88,7 @@ void	ft_move_left(t_game *game)
 			ft_printf("\n\n\n\n\nCongratulations bro !! you win\n\n\n\n\n");
 			exit(0);
 		}
+		update_player(game, 'l');
 		game->map.map[game->map.player.x][game->map.player.y - 1] = 'P';
 		game->map.player.y--;
 		game->map.mv++;
@@ -113,6 +116,7 @@ void	ft_move_right(t_game *game)
 			ft_printf("\n\n\n\n\nCongratulations bro !! you win\n\n\n\n\n");
 			exit(0);
 		}
+		update_player(game, 'w');
 		game->map.map[game->map.player.x][game->map.player.y + 1] = 'P';
 		game->map.player.y++;
 		game->map.mv++;

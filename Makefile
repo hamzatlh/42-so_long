@@ -6,12 +6,14 @@
 #    By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/29 22:15:48 by htalhaou          #+#    #+#              #
-#    Updated: 2022/12/27 01:09:25 by htalhaou         ###   ########.fr        #
+#    Updated: 2022/12/31 20:29:26 by htalhaou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 SRCS = *.c
+
+SRCS_BONUS	= *.c
 
 NAME    = so_long
 
@@ -24,7 +26,10 @@ RM        = rm -f
 
 $(NAME):
 	$(CC) $(SRCS)  -lmlx -framework OpenGL -framework AppKit li/libft.a
-	
+
+bonus:	$(NAME)
+		$(CC) $(SRCS)  -lmlx -framework OpenGL -framework AppKit li/libft.a
+
 all: $(NAME)
 
 clean:
