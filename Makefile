@@ -6,12 +6,12 @@
 #    By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/29 22:15:48 by htalhaou          #+#    #+#              #
-#    Updated: 2023/01/01 18:58:09 by htalhaou         ###   ########.fr        #
+#    Updated: 2023/01/02 22:56:29 by htalhaou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
-SRCS =  ./bonus/*.c
+SRCS =  ./mandatory/*.c
 
 SRCS_BONUS	= ./bonus/*.c
 

@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 16:20:21 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/01/02 01:51:07 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/01/02 22:32:52 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ typedef struct s_img
 	void	*img;
 	int		x_img;
 	int		y_img;
-	void	*p;
 }t_img;
 
 typedef struct s_xy
@@ -50,8 +49,6 @@ typedef struct s_map
 	t_xy		player_up;
 	t_xy		player_left;
 	t_xy		ennemie;
-	t_xy		queue;
-
 }t_map;
 
 typedef struct s_game

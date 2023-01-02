@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 16:48:24 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/01/02 01:11:47 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/01/02 17:51:42 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void	put_elements(t_game *game)
 	num = ft_itoa(game->map.mv);
 	str = ft_strjoin_gnl(ft_strdup_gnl("number of moves : "), num);
 	mlx_string_put(game->mlx, game->win, game->wind_x * SQ + 10,
-		game->wind_y * SQ + 10, 0xFFAE1, str);
+		game->wind_y * SQ + 10, 0xFF00FFFF, str);
 	free (num);
 	free (str);
 }
