@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   so_long_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 16:20:21 by htalhaou          #+#    #+#             */
-/*   Updated: 2022/12/31 22:41:09 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/01/02 01:51:07 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
-# include "li/libft.h"
+#ifndef SO_LONG_BONUS_H
+# define SO_LONG_BONUS_H
+# include "../li/libft.h"
 # include <fcntl.h>
 # include <mlx.h>
 # include <stdio.h>
@@ -49,6 +49,7 @@ typedef struct s_map
 	t_xy		player_down;
 	t_xy		player_up;
 	t_xy		player_left;
+	t_xy		ennemie;
 	t_xy		queue;
 
 }t_map;
@@ -61,7 +62,9 @@ typedef struct s_game
 	int		count_p;
 	int		count_e;
 	int		wind_x;
-	int		wind_y;	
+	int		wind_y;
+	int		time;
+	t_img	ennemie;
 	t_map	map;
 	t_img	background;
 	t_img	wall;
@@ -85,16 +88,19 @@ int		lentgh(char *line);
 int		count_line(char *filename);
 int		count_collect(char **map, t_game *tmp);
 int		ft_keypress(int key, t_game *game);
-int		exit_game(t_game *game);
+void	exit_game(t_game *game);
 int		check_map_path(char **copy_map);
 char	**copy(char *filename);
 void	init(t_game *game);
 void	game_initial(t_game *game);
 void	check_epc(char **map, t_game *game);
-void	ft_images(t_game *game);
 void	put_exit(t_game *game, int x, int y);
 void	pu_2(t_game *game, int x, int y);
 void	put_elements(t_game *game);
 void	update_player(t_game *game, char s);
+void	ft_won(t_game *game);
+void	kill_ennemie(t_game *game);
+void	move(t_game *game);
+int		movement(t_game *game);
 
 #endif

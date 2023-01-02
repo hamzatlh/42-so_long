@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 16:48:24 by htalhaou          #+#    #+#             */
-/*   Updated: 2022/12/31 22:33:07 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/01/01 18:16:56 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	put_images(t_game *game)
 			&game->collectible.x_img, &game->collectible.y_img);
 	game->exit.img = mlx_xpm_file_to_image(game->mlx, "./assets/12.xpm",
 			&game->exit.x_img, &game->exit.y_img);
-	game->player.img = mlx_xpm_file_to_image(game->mlx, "./assets/0.xpm",
+	game->player.img = mlx_xpm_file_to_image(game->mlx, "./assets/player.xpm",
 			&game->player.x_img, &game->player.y_img);
 	game->exit_ouvert.img = mlx_xpm_file_to_image(game->mlx, "./assets/11.xpm",
 			&game->exit_ouvert.x_img, &game->exit_ouvert.y_img);
@@ -67,12 +67,6 @@ void	put_elements(t_game *game)
 		}
 		x++;
 	}
-	num = ft_itoa(game->map.mv);
-	str = ft_strjoin_gnl(ft_strdup_gnl("number of moves : "), num);
-	mlx_string_put(game->mlx, game->win, game->wind_x * SQ,
-		game->wind_y * SQ, 0x0FAE1, str);
-	free (num);
-	free (str);
 }
 
 void	put_exit(t_game *game, int x, int y)

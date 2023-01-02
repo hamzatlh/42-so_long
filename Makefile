@@ -6,14 +6,14 @@
 #    By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/29 22:15:48 by htalhaou          #+#    #+#              #
-#    Updated: 2022/12/31 22:01:15 by htalhaou         ###   ########.fr        #
+#    Updated: 2023/01/01 18:58:09 by htalhaou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
-SRCS =  *.c
+SRCS =  ./bonus/*.c
 
-SRCS_BONUS	= *.c
+SRCS_BONUS	= ./bonus/*.c
 
 NAME    = so_long
 
