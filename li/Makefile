@@ -6,7 +6,7 @@
 #    By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/04 13:16:33 by htalhaou          #+#    #+#              #
-#    Updated: 2022/12/03 17:32:30 by htalhaou         ###   ########.fr        #
+#    Updated: 2023/01/09 21:54:14 by htalhaou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -76,13 +76,13 @@ CFLAGS    = -Wall -Wextra -Werror
 RM        = rm -f
 
 %.o : %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) -c $< -o $@
 			
 $(NAME):$(OBJS)
 	ar rcs $(NAME) $(OBJS)
 			
 bonus:$(NAME) $(OBJS_BONUS)
-	ar rcs $(NAME) $(OBJS_BONUS)
+	@ar rcs $(NAME) $(OBJS_BONUS)
 
 all:$(NAME)
 

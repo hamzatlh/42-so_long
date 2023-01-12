@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/01 23:38:39 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/01/02 22:14:13 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/01/12 20:29:44 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	check_path(t_game *game, char move)
 {
-	if (move == '1' || move == 'C')
+	if (move == '1' || move == 'C' || move == 'M')
 		return (0);
 	else if (move == 'P')
 	{
@@ -40,7 +40,7 @@ void	move_ennemie(t_game *game, int x, int y)
 	else if (check_path(game, game->map.map[x - 1][y]) && move == 3)
 		game->map.map[x - 1][y] = 'M';
 	else
-		game->map.map[x][y] = 'M';
+	game->map.map[x][y] = 'M';
 }
 
 void	move(t_game *game)
@@ -64,7 +64,7 @@ void	move(t_game *game)
 
 int	movement(t_game *game)
 {
-	if (game->time % 3000 == 0)
+	if (game->time % 4000 == 0)
 	{
 		move(game);
 		put_elements(game);

@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 16:20:21 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/01/01 18:30:31 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/01/12 22:00:26 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,5 +97,7 @@ void	put_exit(t_game *game, int x, int y);
 void	pu_2(t_game *game, int x, int y);
 void	put_elements(t_game *game);
 void	update_player(t_game *game, char s);
+void	check_complete(char **map);
+void	check_character(char *c);
 
 #endif

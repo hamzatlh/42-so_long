@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 16:20:21 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/01/02 22:32:52 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/01/12 22:30:55 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ typedef struct s_game
 	int		wind_x;
 	int		wind_y;
 	int		time;
+	char	*nameplayer;
 	t_img	ennemie;
 	t_map	map;
 	t_img	background;
@@ -99,5 +100,8 @@ void	ft_won(t_game *game);
 void	kill_ennemie(t_game *game);
 void	move(t_game *game);
 int		movement(t_game *game);
+void	ft_put_bg_mv(t_game *game);
+void	check_complete(char **map);
+void	check_character(char *c);
 
 #endif

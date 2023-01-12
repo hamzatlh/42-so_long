@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 12:19:35 by htalhaou          #+#    #+#             */
-/*   Updated: 2022/12/29 21:55:36 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/01/12 21:41:25 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int	check_wall(char **map, char *filename)
 		if (map[count_line(filename) - 1][i] != '1' &&
 			map[count_line(filename) - 1][i] != '\n')
 			return (0);
-			i++;
+		i++;
 	}
 	return (1);
 }

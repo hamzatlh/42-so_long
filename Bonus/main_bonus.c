@@ -6,11 +6,33 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 19:22:33 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/01/02 17:39:45 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/01/12 22:03:03 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
+
+void	check_complete(char **map)
+{
+	int	i;
+
+	i = 0;
+	while (map[i])
+	{
+		check_character(map[i]);
+		if (map[i][0] != '1')
+		{
+			ft_printf("Error\nCheck <<Wall>>");
+			exit (0);
+		}
+		else if (map[i][ft_strlen(map[0]) - 2] != '1')
+		{
+			ft_printf("Error\nCheck <<Wall>>");
+			exit (0);
+		}
+		i++;
+	}
+}
 
 void	init(t_game *game)
 {
@@ -32,7 +54,7 @@ void	game_initial(t_game *game)
 {
 	game->mlx = mlx_init();
 	game->win = mlx_new_window(game->mlx, game->map.y * SQ,
-			game->map.x * SQ, "so_long");
+			game->map.x * SQ + 40, "so_long");
 	put_images(game);
 	backround(game);
 	put_elements(game);
@@ -42,10 +64,10 @@ int	main(int ac, char **av)
 {
 	t_game	game;
 	int		fd;
-	int		key;
 
 	if (ac == 2)
 	{
+		game.nameplayer = av[2];
 		fd = open(av[1], O_RDONLY);
 		if (fd <= 0)
 		{

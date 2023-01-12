@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 16:48:24 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/01/01 18:16:56 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/01/12 22:41:44 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,28 @@
 
 void	put_images(t_game *game)
 {
-	game->background.img = mlx_xpm_file_to_image(game->mlx, "./assets/back.xpm",
-			&game->background.x_img, &game->background.y_img);
-	game->wall.img = mlx_xpm_file_to_image(game->mlx, "./assets/15.xpm",
+	game->background.img = mlx_xpm_file_to_image(game->mlx,
+			"./textures/back.xpm", &game->background.x_img,
+			&game->background.y_img);
+	game->wall.img = mlx_xpm_file_to_image(game->mlx, "./textures/15.xpm",
 			&game->wall.x_img, &game->wall.y_img);
-	game->collectible.img = mlx_xpm_file_to_image(game->mlx, "./assets/7_1.xpm",
-			&game->collectible.x_img, &game->collectible.y_img);
-	game->exit.img = mlx_xpm_file_to_image(game->mlx, "./assets/12.xpm",
+	game->collectible.img = mlx_xpm_file_to_image(game->mlx,
+			"./textures/7_1.xpm", &game->collectible.x_img,
+			&game->collectible.y_img);
+	game->exit.img = mlx_xpm_file_to_image(game->mlx, "./textures/12.xpm",
 			&game->exit.x_img, &game->exit.y_img);
-	game->player.img = mlx_xpm_file_to_image(game->mlx, "./assets/player.xpm",
-			&game->player.x_img, &game->player.y_img);
-	game->exit_ouvert.img = mlx_xpm_file_to_image(game->mlx, "./assets/11.xpm",
-			&game->exit_ouvert.x_img, &game->exit_ouvert.y_img);
+	game->player.img = mlx_xpm_file_to_image(game->mlx,
+			"./textures/p_right.xpm", &game->player.x_img,
+			&game->player.y_img);
+	game->exit_ouvert.img = mlx_xpm_file_to_image(game->mlx,
+			"./textures/11.xpm", &game->exit_ouvert.x_img,
+			&game->exit_ouvert.y_img);
 }
 
 void	backround(t_game *game)
 {
 	int	x;
 	int	y;
-	int	i;
 
 	x = 0;
 	while (x < game->map.x * SQ)
@@ -52,8 +55,6 @@ void	put_elements(t_game *game)
 {
 	int		x;
 	int		y;
-	char	*str;
-	char	*num;
 
 	x = 0;
 	while (x < game->map.x)

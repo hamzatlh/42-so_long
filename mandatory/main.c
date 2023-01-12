@@ -6,11 +6,33 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 19:22:33 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/01/01 17:30:17 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/01/12 21:57:56 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+void	check_complete(char **map)
+{
+	int	i;
+
+	i = 0;
+	while (map[i])
+	{
+		check_character(map[i]);
+		if (map[i][0] != '1')
+		{
+			ft_printf("Error\nCheck <<Wall>>");
+			exit (0);
+		}
+		else if (map[i][ft_strlen(map[0]) - 2] != '1')
+		{
+			ft_printf("Error\nCheck <<Wall>>");
+			exit (0);
+		}
+		i++;
+	}
+}
 
 void	init(t_game *game)
 {
@@ -38,7 +60,6 @@ int	main(int ac, char **av)
 {
 	t_game	game;
 	int		fd;
-	int		key;
 
 	if (ac == 2)
 	{

@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   enemie.c                                           :+:      :+:    :+:   */
+/*   ft_put_bg_mv.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/01 17:37:42 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/01/12 22:06:01 by htalhaou         ###   ########.fr       */
+/*   Created: 2023/01/11 23:26:15 by htalhaou          #+#    #+#             */
+/*   Updated: 2023/01/12 22:05:35 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
 
-void	kill_ennemie(t_game *game)
+void	ft_put_bg_mv(t_game *game)
 {
-	ft_printf("sorry!be more attention");
-	put_elements(game);
-	exit_game(game);
-}
+	size_t	i;
 
-void	ft_won(t_game *game)
-{
-	ft_printf("\n\n\n\n\nCongratulations bro !! you win\n\n\n\n\n");
-	exit_game(game);
+	i = 0;
+	while (i < ft_strlen(game->map.map[0]))
+	{
+		mlx_put_image_to_window(game->mlx, game->win,
+			game->background.img, i * 40, 0);
+		i++;
+	}
 }
