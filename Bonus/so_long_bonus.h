@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 16:20:21 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/01/12 22:30:55 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/01/12 23:25:32 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,5 +103,6 @@ int		movement(t_game *game);
 void	ft_put_bg_mv(t_game *game);
 void	check_complete(char **map);
 void	check_character(char *c);
+void	protection(t_game *game);
 
 #endif

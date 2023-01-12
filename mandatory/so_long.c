@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 16:48:24 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/01/12 22:41:44 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/01/12 23:21:38 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,13 @@ void	put_images(t_game *game)
 	game->exit_ouvert.img = mlx_xpm_file_to_image(game->mlx,
 			"./textures/11.xpm", &game->exit_ouvert.x_img,
 			&game->exit_ouvert.y_img);
+	if (!game->background.img || !game->wall.img
+		|| !game->collectible.img || !game->exit.img
+		|| !game->player.img || !game->exit_ouvert.img)
+	{
+		ft_printf("img not found");
+		exit (0);
+	}
 }
 
 void	backround(t_game *game)

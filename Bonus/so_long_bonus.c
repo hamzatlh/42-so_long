@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 16:48:24 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/01/12 22:44:13 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/01/12 23:25:56 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ void	put_images(t_game *game)
 	game->ennemie.img = mlx_xpm_file_to_image(game->mlx,
 			"./textures/ennemie.xpm", &game->ennemie.x_img,
 			&game->ennemie.y_img);
+	protection(game);
 }
 
 void	backround(t_game *game)
