@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 17:04:53 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/01/01 18:37:12 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/01/13 22:01:11 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ char	**copy(char *filename)
 	if (!copy_map)
 		return (NULL);
 	fd = open(filename, O_RDONLY);
+	if (!fd)
+		exit (0);
 	i = 0;
 	while (1)
 	{
@@ -32,11 +34,7 @@ char	**copy(char *filename)
 			break ;
 		i++;
 	}
-	if (!check_map_path(copy_map))
-	{
-		ft_printf("\ninvalid_path\n");
-		exit (0);
-	}
+	not_path(copy_map);
 	close (fd);
 	return (copy_map);
 }
@@ -116,4 +114,13 @@ int	check_map_path(char **copy_map)
 		i++;
 	}
 	return (1);
+}
+
+void	not_path(char **copy_map)
+{
+	if (!check_map_path(copy_map))
+	{
+		ft_printf("\ninvalid_path\n");
+		exit (0);
+	}
 }

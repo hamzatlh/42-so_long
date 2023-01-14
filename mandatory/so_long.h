@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 16:20:21 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/01/12 22:00:26 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/01/13 21:59:01 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,7 @@ int		ft_keypress(int key, t_game *game);
 int		exit_game(t_game *game);
 int		check_map_path(char **copy_map);
 char	**copy(char *filename);
+void	not_path(char **copy_map);
 void	init(t_game *game);
 void	game_initial(t_game *game);
 void	check_epc(char **map, t_game *game);

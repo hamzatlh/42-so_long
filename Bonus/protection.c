@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 23:24:15 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/01/12 23:25:20 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/01/13 01:25:08 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,6 @@ void	protection(t_game *game)
 		|| !game->ennemie.img)
 	{
 		ft_printf("img not found");
-		exit (0);
+		exit_game(game);
 	}
 }

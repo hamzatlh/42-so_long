@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 16:20:21 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/01/12 23:25:32 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/01/14 01:07:49 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,6 @@ typedef struct s_game
 	int		wind_x;
 	int		wind_y;
 	int		time;
-	char	*nameplayer;
 	t_img	ennemie;
 	t_map	map;
 	t_img	background;
@@ -89,6 +88,7 @@ int		ft_keypress(int key, t_game *game);
 void	exit_game(t_game *game);
 int		check_map_path(char **copy_map);
 char	**copy(char *filename);
+void	not_path(char **copy_map);
 void	init(t_game *game);
 void	game_initial(t_game *game);
 void	check_epc(char **map, t_game *game);
@@ -103,6 +103,11 @@ int		movement(t_game *game);
 void	ft_put_bg_mv(t_game *game);
 void	check_complete(char **map);
 void	check_character(char *c);
+void	animation(t_game *game);
 void	protection(t_game *game);
-
+void	ft_move_up(t_game *game);
+void	ft_move_down(t_game *game);
+void	ft_move_right(t_game *game);
+void	ft_move_left(t_game *game);
+void	anim(t_game *game);
 #endif

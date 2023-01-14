@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 16:27:22 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/01/12 22:01:52 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/01/13 19:10:29 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,8 @@ char	**print_m(char *filename, t_game *tmp)
 	int		fd;
 
 	fd = open(filename, O_RDONLY);
+	if (!fd)
+		exit (0);
 	map = read_map(filename);
 	if (!check_filename_ext(filename, "ber") || \
 	!check_len(map) || !check_wall(map, filename) || !count_collect(map, tmp))

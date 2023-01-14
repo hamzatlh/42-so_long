@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 19:22:33 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/01/12 22:03:03 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/01/14 01:21:37 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,6 @@ int	main(int ac, char **av)
 
 	if (ac == 2)
 	{
-		game.nameplayer = av[2];
 		fd = open(av[1], O_RDONLY);
 		if (fd <= 0)
 		{

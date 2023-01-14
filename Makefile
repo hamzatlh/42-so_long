@@ -6,7 +6,7 @@
 #    By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/29 22:15:48 by htalhaou          #+#    #+#              #
-#    Updated: 2023/01/12 23:55:21 by htalhaou         ###   ########.fr        #
+#    Updated: 2023/01/14 01:21:02 by htalhaou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,6 +31,7 @@ SRCS_BONUS	= bonus/check_map_bonus.c\
 			bonus/protection.c\
 			bonus/so_long_bonus.c\
 			bonus/update_player_bonus.c\
+			bonus/animation.c
 
 NAME    = so_long
 
@@ -53,8 +54,9 @@ $(NAME):$(OBJS)
 	@make -C li/
 	$(CC) $(CFLAGS) $(OBJS)  -lmlx -framework OpenGL -framework AppKit li/libft.a -o $(NAME)
 
+bonus:$(NAME_BONUS)
 
-bonus:$(OBJS_BONUS)	
+$(NAME_BONUS):$(OBJS_BONUS)
 	@make -C li/
 	$(CC) $(CFLAGS) $(OBJS_BONUS)  -lmlx -framework OpenGL -framework AppKit li/libft.a -o $(NAME_BONUS)
 
@@ -65,6 +67,6 @@ fclean: clean
 	@make fclean -C li/
 	$(RM) $(OBJS) $(OBJS_BONUS) $(NAME_BONUS)
 
-re:fclean all
+re:fclean all bonus
 
 .PHONY:fclean bonus all clean re

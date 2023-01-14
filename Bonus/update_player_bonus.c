@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/31 15:00:15 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/01/12 23:26:32 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/01/13 01:25:16 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,6 @@ void	update_player(t_game *game, char s)
 	if (!game->player.img)
 	{
 		ft_printf("img not found");
-		exit (0);
+		exit_game(game);
 	}
 }

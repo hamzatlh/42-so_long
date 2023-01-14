@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/01 23:38:39 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/01/12 20:29:44 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/01/14 01:08:11 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	check_path(t_game *game, char move)
 {
-	if (move == '1' || move == 'C' || move == 'M')
+	if (move == '1' || move == 'C' || move == 'M' || move == 'E')
 		return (0);
 	else if (move == 'P')
 	{
@@ -69,6 +69,14 @@ int	movement(t_game *game)
 		move(game);
 		put_elements(game);
 	}
+	animation(game);
 	game->time++;
 	return (0);
+}
+
+void	animation(t_game *game)
+{
+	if (game->map.map[game->map.exit.x][game->map.exit.y] == 'E' ||
+		game->map.map[game->map.exit.x][game->map.exit.y] == 'e')
+		anim(game);
 }

@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 19:22:33 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/01/12 21:57:56 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/01/13 01:29:17 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ int	main(int ac, char **av)
 		mlx_hook(game.win, 2, 0, ft_keypress, &game);
 		mlx_hook(game.win, 17, 0, exit_game, &game);
 		mlx_loop(game.mlx);
+		close (fd);
 	}
 	ft_printf("Error\nMap makynach\n");
 	return (0);
