@@ -6,7 +6,7 @@
 /*   By: htalhaou <htalhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 19:22:33 by htalhaou          #+#    #+#             */
-/*   Updated: 2023/01/14 01:21:37 by htalhaou         ###   ########.fr       */
+/*   Updated: 2023/01/14 18:38:38 by htalhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,11 @@ void	game_initial(t_game *game)
 	game->mlx = mlx_init();
 	game->win = mlx_new_window(game->mlx, game->map.y * SQ,
 			game->map.x * SQ + 40, "so_long");
+	if (game->map.y * SQ > 5120 || game->map.x * SQ > 2880)
+	{
+		ft_printf("map so_long");
+		exit (0);
+	}
 	put_images(game);
 	backround(game);
 	put_elements(game);
